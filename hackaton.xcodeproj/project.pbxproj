@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D283B4C2B9924BD00D64C23 /* campaignsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283B4B2B9924BD00D64C23 /* campaignsView.swift */; };
+		8D283B4E2B9925B200D64C23 /* campaignsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283B4D2B9925B200D64C23 /* campaignsData.swift */; };
+		8D283B502B99260000D64C23 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283B4F2B99260000D64C23 /* Campaign.swift */; };
 		EE150CDF2B94458C000C9BA4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EE150CDE2B94458C000C9BA4 /* FirebaseFirestore */; };
 		EE150CE12B94458C000C9BA4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE150CE02B94458C000C9BA4 /* FirebaseFirestoreSwift */; };
 		EE150CE32B94458C000C9BA4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EE150CE22B94458C000C9BA4 /* FirebaseStorage */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D283B4B2B9924BD00D64C23 /* campaignsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = campaignsView.swift; sourceTree = "<group>"; };
+		8D283B4D2B9925B200D64C23 /* campaignsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = campaignsData.swift; sourceTree = "<group>"; };
+		8D283B4F2B99260000D64C23 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
 		EE150CE42B944801000C9BA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EE150CE62B9456CD000C9BA4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EE150CEA2B954CCA000C9BA4 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 				EE150CF42B956E68000C9BA4 /* ReusableProfileContent.swift */,
 				EEAF05882B9867E300C924C6 /* notLoggedInView.swift */,
 				EEAF058A2B9871FE00C924C6 /* TheMainView.swift */,
+				8D283B4B2B9924BD00D64C23 /* campaignsView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 				EE150CE42B944801000C9BA4 /* User.swift */,
 				EEAF05762B98227E00C924C6 /* Location.swift */,
 				EEAF057D2B982A7100C924C6 /* LocationsViewModel.swift */,
+				8D283B4F2B99260000D64C23 /* Campaign.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				EEAF05792B98238000C924C6 /* LocationsDataService.swift */,
+				8D283B4D2B9925B200D64C23 /* campaignsData.swift */,
 			);
 			path = DataServices;
 			sourceTree = "<group>";
@@ -405,11 +414,14 @@
 				EEAF05872B98525100C924C6 /* LocationDetailView.swift in Sources */,
 				EEAF05772B98227E00C924C6 /* Location.swift in Sources */,
 				EEAF057C2B98272300C924C6 /* LocationsView.swift in Sources */,
+				8D283B502B99260000D64C23 /* Campaign.swift in Sources */,
+				8D283B4C2B9924BD00D64C23 /* campaignsView.swift in Sources */,
 				EEAF057E2B982A7100C924C6 /* LocationsViewModel.swift in Sources */,
 				EE150CF22B954FFB000C9BA4 /* ProfileView.swift in Sources */,
 				EE150CF52B956E68000C9BA4 /* ReusableProfileContent.swift in Sources */,
 				EEAF05892B9867E300C924C6 /* notLoggedInView.swift in Sources */,
 				EEAF058B2B9871FE00C924C6 /* TheMainView.swift in Sources */,
+				8D283B4E2B9925B200D64C23 /* campaignsData.swift in Sources */,
 				EE150CF02B954E96000C9BA4 /* MainView.swift in Sources */,
 				EEAF05852B984DC000C924C6 /* LocationMapAnnotationView.swift in Sources */,
 				EE5117202B9420BD0098C511 /* LoginView.swift in Sources */,

@@ -63,7 +63,7 @@ struct TheMainView: View {
                                 alignment: .top
                             )
                         RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(appsGreen.opacity(0.1)) // Fondo blanco para las insignias
+                            .fill(appsGreen.opacity(0.1))
                             .frame(height: 80)
                             .overlay(
                                 HStack(spacing: 30) {
@@ -83,7 +83,6 @@ struct TheMainView: View {
                     .frame(maxWidth: .infinity)
                     .clipShape(RoundedRectangle(cornerRadius: 25))
                 }
-                .background(appsGreen.opacity(0.2))
                 .padding() // Añadir padding general si es necesario
 
                 
