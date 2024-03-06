@@ -1,9 +1,7 @@
 //
 //  TheMainView.swift
 //  hackaton
-//
-//  Created by José Ángel del Monte Salazar on 06/03/24.
-//
+
 
 import SwiftUI
 
@@ -84,30 +82,7 @@ struct TheMainView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 25))
                 }
                 .padding() // Añadir padding general si es necesario
-
-                
-                ForEach(campaigns, id: \.0) { campaign in
-                    HStack {
-                        Image(campaign.2) // Usa el nombre de la imagen asociada a la campaña
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding()
-                        
-                        VStack(alignment: .leading) {
-                            Text(campaign.0)
-                                .font(.headline)
-                                .padding(.top)
-                            Text(campaign.1)
-                                .font(.subheadline)
-                                .padding(.bottom)
-                        }
-                        Spacer()
-                    }
-                    .background(appsGreen.opacity(0.2))
-                    .cornerRadius(10)
-                .padding([.leading, .trailing, .top])
-                }
+                CampaignsView()
             }
         }
     }

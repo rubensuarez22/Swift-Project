@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CampaignsView: View { // Renamed struct for clarity
     @State private var campaigns: [Campaign] = campaignsData.campaigns // Updated data source
-
+    let appsGreen = Color(red: 112/255, green: 224/255, blue: 0/255)
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -21,14 +22,14 @@ struct CampaignsView: View { // Renamed struct for clarity
                             imageSection(for: campaign)
                             textSection(for: campaign)
                         }
-                        .background(Color.green.opacity(0.2))
+                        .background(appsGreen.opacity(0.2))
                         .cornerRadius(10)
                         .padding([.leading, .trailing, .top])
+                        .frame(width: 400, height: 100)
                     }
                     Spacer() // Add spacer for consistent spacing
                 }
             }
-            .navigationBarTitle("Campañas") // Add navigation bar title
         }
     }
 
@@ -49,10 +50,14 @@ struct CampaignsView: View { // Renamed struct for clarity
             Text(campaign.name)
                 .font(.headline)
                 .padding(.top)
+                .foregroundColor(.primary)
             Text(campaign.description)
+                .foregroundColor(.secondary)
                 .font(.subheadline)
-                .lineLimit(2) // Limit description lines to 2
+                .lineLimit(.none) // Limit description lines to 2
                 .padding(.bottom)
+                .padding(.trailing)
+                
         }
     }
 }

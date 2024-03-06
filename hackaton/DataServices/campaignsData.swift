@@ -13,7 +13,11 @@ class campaignsData {
       description: "Your community will get together to clean the main square.",
       imageNames: ["reciclaje"],
       link: ""),
-    Campaign(name: "Donation campaign", description: "Your community is gathering clothing to donate to the city's orphanage.", imageNames: ["ayuda"], link: "")
+    Campaign(
+        name: "Donation campaign",
+        description: "Your community is gathering clothing to donate to the city's orphanage.",
+        imageNames: ["ayuda"],
+        link: "")
   ]
    
 }
