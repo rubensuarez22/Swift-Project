@@ -35,6 +35,7 @@
 		EEAF05812B9832C100C924C6 /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF05802B9832C100C924C6 /* LocationsListView.swift */; };
 		EEAF05832B9840D000C924C6 /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF05822B9840D000C924C6 /* LocationPreviewView.swift */; };
 		EEAF05852B984DC000C924C6 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF05842B984DC000C924C6 /* LocationMapAnnotationView.swift */; };
+		EEAF05872B98525100C924C6 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF05862B98525100C924C6 /* LocationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		EEAF05802B9832C100C924C6 /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
 		EEAF05822B9840D000C924C6 /* LocationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewView.swift; sourceTree = "<group>"; };
 		EEAF05842B984DC000C924C6 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
+		EEAF05862B98525100C924C6 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				EEAF05802B9832C100C924C6 /* LocationsListView.swift */,
 				EEAF05822B9840D000C924C6 /* LocationPreviewView.swift */,
 				EEAF05842B984DC000C924C6 /* LocationMapAnnotationView.swift */,
+				EEAF05862B98525100C924C6 /* LocationDetailView.swift */,
 			);
 			path = MapViews;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			files = (
 				EEAF05812B9832C100C924C6 /* LocationsListView.swift in Sources */,
 				EE150CE52B944801000C9BA4 /* User.swift in Sources */,
+				EEAF05872B98525100C924C6 /* LocationDetailView.swift in Sources */,
 				EEAF05772B98227E00C924C6 /* Location.swift in Sources */,
 				EEAF057C2B98272300C924C6 /* LocationsView.swift in Sources */,
 				EEAF057E2B982A7100C924C6 /* LocationsViewModel.swift in Sources */,
