@@ -2,7 +2,6 @@
 //  View+extensions.swift
 //  hackaton
 //
-//  Created by José Ángel del Monte Salazar on 03/03/24.
 //
 
 import SwiftUI

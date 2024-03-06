@@ -122,8 +122,7 @@ struct RegisterView: View{
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
             
-            TextField("Acerca de ti", text: $userBio, axis:.vertical)
-                .frame(minHeight: 100, alignment: .top)
+            TextField("ZIP Code", text: $userBio)
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
             
@@ -190,6 +189,6 @@ struct RegisterView: View{
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RegisterView()
     }
 }

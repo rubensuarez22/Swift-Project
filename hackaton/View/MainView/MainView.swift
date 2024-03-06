@@ -1,31 +1,41 @@
 //
 //  MainView.swift
 //  hackaton
-//
-//  Created by José Ángel del Monte Salazar on 03/03/24.
-//
+
 
 import SwiftUI
 
 struct MainView: View {
     var body: some View {
         TabView{
-            Text("Publicaciones recientes")
+            TheMainView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Principal")
+                }
+            LocationsView()
+                .environmentObject(LocationsViewModel())
                 .tabItem{
-                    Image(systemName: "rectangle.portrait.on.rectangle.portrait.angled")
-                    Text("Publicaciones")
+                    Image(systemName: "map")
+                    Text("Mapa")
                 }
             ProfileView()
                 .tabItem{
-                    Image(systemName: "gear")
+                    Image(systemName: "person")
                     Text("Perfil")
                 }
-        }
+            /*
+            Text("Ya vere que se hace con esta vista")
+                .tabItem{
+                    Image(systemName: "rectangle.portrait.on.rectangle.portrait.angled")
+                    Text("Publicaciones")
+                }        */
+             }
 //        Changing tab table tint to black
         .tint(.black)
     }
 }
 
 #Preview {
-    ContentView()
+    MainView()
 }
