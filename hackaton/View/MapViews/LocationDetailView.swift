@@ -43,8 +43,8 @@ extension LocationDetailView {
             ForEach(location.imageNames, id: \.self) {
                 Image($0)
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width)
+                    .scaledToFill()
+                    .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)
                     .clipped()
             }
         }
