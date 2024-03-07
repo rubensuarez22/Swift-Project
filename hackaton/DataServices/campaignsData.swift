@@ -17,6 +17,11 @@ class campaignsData {
         name: "Donation campaign",
         description: "Your community is gathering clothing to donate to the city's orphanage.",
         imageNames: ["ayuda"],
+        link: ""),
+    Campaign(
+        name: "Donations campaign",
+        description: "Your community is gathering clothing to donate to the city's orphanage.",
+        imageNames: ["ayuda"],
         link: "")
   ]
    

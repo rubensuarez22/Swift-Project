@@ -13,6 +13,11 @@ struct MainView: View {
                     Image(systemName: "house")
                     Text("Principal")
                 }
+            PostsView()
+                .tabItem {
+                    Image(systemName: "rectangle.portrait.on.rectangle.portrait.angled")
+                    Text("Publicaciones")
+                }
             LocationsView()
                 .environmentObject(LocationsViewModel())
                 .tabItem{

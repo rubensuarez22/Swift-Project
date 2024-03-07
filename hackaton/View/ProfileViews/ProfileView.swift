@@ -30,6 +30,8 @@ struct ProfileView: View {
                             self.myProfile = nil
                             await fetchUserData()
                         }
+                    badgesView()
+                        .padding(.top)
                 }else{
                     ProgressView()
                 }
@@ -110,5 +112,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ContentView()
+    ProfileView()
 }

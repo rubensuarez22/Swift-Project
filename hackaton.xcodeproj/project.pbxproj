@@ -31,6 +31,13 @@
 		EE9A385A2B9411CA00C1A764 /* hackatonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9A38592B9411CA00C1A764 /* hackatonTests.swift */; };
 		EE9A38642B9411CA00C1A764 /* hackatonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9A38632B9411CA00C1A764 /* hackatonUITests.swift */; };
 		EE9A38662B9411CA00C1A764 /* hackatonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9A38652B9411CA00C1A764 /* hackatonUITestsLaunchTests.swift */; };
+		EE9DE1B92B9950EF0035B9A1 /* badgesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DE1B82B9950EF0035B9A1 /* badgesData.swift */; };
+		EE9DE1BB2B99510B0035B9A1 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DE1BA2B99510B0035B9A1 /* Badges.swift */; };
+		EE9DE1BE2B99528B0035B9A1 /* badgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DE1BD2B99528B0035B9A1 /* badgesView.swift */; };
+		EE9DE1C02B9961E50035B9A1 /* CreateNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DE1BF2B9961E50035B9A1 /* CreateNewPost.swift */; };
+		EE9DE1C22B9962200035B9A1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DE1C12B9962200035B9A1 /* Post.swift */; };
+		EE9DE1C42B9978030035B9A1 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DE1C32B9978030035B9A1 /* PostsView.swift */; };
+		EE9DE1C62B997AE70035B9A1 /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DE1C52B997AE70035B9A1 /* ReusablePostView.swift */; };
 		EEAF05772B98227E00C924C6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF05762B98227E00C924C6 /* Location.swift */; };
 		EEAF057A2B98238000C924C6 /* LocationsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF05792B98238000C924C6 /* LocationsDataService.swift */; };
 		EEAF057C2B98272300C924C6 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF057B2B98272300C924C6 /* LocationsView.swift */; };
@@ -83,6 +90,13 @@
 		EE9A385F2B9411CA00C1A764 /* hackatonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackatonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE9A38632B9411CA00C1A764 /* hackatonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackatonUITests.swift; sourceTree = "<group>"; };
 		EE9A38652B9411CA00C1A764 /* hackatonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackatonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EE9DE1B82B9950EF0035B9A1 /* badgesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = badgesData.swift; sourceTree = "<group>"; };
+		EE9DE1BA2B99510B0035B9A1 /* Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
+		EE9DE1BD2B99528B0035B9A1 /* badgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = badgesView.swift; sourceTree = "<group>"; };
+		EE9DE1BF2B9961E50035B9A1 /* CreateNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPost.swift; sourceTree = "<group>"; };
+		EE9DE1C12B9962200035B9A1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		EE9DE1C32B9978030035B9A1 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		EE9DE1C52B997AE70035B9A1 /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
 		EEAF05762B98227E00C924C6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EEAF05792B98238000C924C6 /* LocationsDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsDataService.swift; sourceTree = "<group>"; };
 		EEAF057B2B98272300C924C6 /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
@@ -145,11 +159,13 @@
 			isa = PBXGroup;
 			children = (
 				EE150CEF2B954E96000C9BA4 /* MainView.swift */,
-				EE150CF12B954FFB000C9BA4 /* ProfileView.swift */,
 				EE150CF42B956E68000C9BA4 /* ReusableProfileContent.swift */,
 				EEAF05882B9867E300C924C6 /* notLoggedInView.swift */,
 				EEAF058A2B9871FE00C924C6 /* TheMainView.swift */,
 				8D283B4B2B9924BD00D64C23 /* campaignsView.swift */,
+				EE9DE1BF2B9961E50035B9A1 /* CreateNewPost.swift */,
+				EE9DE1C32B9978030035B9A1 /* PostsView.swift */,
+				EE9DE1C52B997AE70035B9A1 /* ReusablePostView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -165,6 +181,7 @@
 		EE51171B2B941FE80098C511 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE9DE1BC2B9952610035B9A1 /* ProfileViews */,
 				EEAF057F2B9832A100C924C6 /* MapViews */,
 				EE150CEC2B954DD2000C9BA4 /* Helpers */,
 				EE150CE92B954C5B000C9BA4 /* MainView */,
@@ -181,6 +198,8 @@
 				EEAF05762B98227E00C924C6 /* Location.swift */,
 				EEAF057D2B982A7100C924C6 /* LocationsViewModel.swift */,
 				8D283B4F2B99260000D64C23 /* Campaign.swift */,
+				EE9DE1BA2B99510B0035B9A1 /* Badges.swift */,
+				EE9DE1C12B9962200035B9A1 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,11 +265,21 @@
 			path = hackatonUITests;
 			sourceTree = "<group>";
 		};
+		EE9DE1BC2B9952610035B9A1 /* ProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				EE150CF12B954FFB000C9BA4 /* ProfileView.swift */,
+				EE9DE1BD2B99528B0035B9A1 /* badgesView.swift */,
+			);
+			path = ProfileViews;
+			sourceTree = "<group>";
+		};
 		EEAF05782B98235100C924C6 /* DataServices */ = {
 			isa = PBXGroup;
 			children = (
 				EEAF05792B98238000C924C6 /* LocationsDataService.swift */,
 				8D283B4D2B9925B200D64C23 /* campaignsData.swift */,
+				EE9DE1B82B9950EF0035B9A1 /* badgesData.swift */,
 			);
 			path = DataServices;
 			sourceTree = "<group>";
@@ -420,14 +449,21 @@
 				EE150CF22B954FFB000C9BA4 /* ProfileView.swift in Sources */,
 				EE150CF52B956E68000C9BA4 /* ReusableProfileContent.swift in Sources */,
 				EEAF05892B9867E300C924C6 /* notLoggedInView.swift in Sources */,
+				EE9DE1B92B9950EF0035B9A1 /* badgesData.swift in Sources */,
 				EEAF058B2B9871FE00C924C6 /* TheMainView.swift in Sources */,
 				8D283B4E2B9925B200D64C23 /* campaignsData.swift in Sources */,
+				EE9DE1BE2B99528B0035B9A1 /* badgesView.swift in Sources */,
+				EE9DE1C62B997AE70035B9A1 /* ReusablePostView.swift in Sources */,
 				EE150CF02B954E96000C9BA4 /* MainView.swift in Sources */,
+				EE9DE1BB2B99510B0035B9A1 /* Badges.swift in Sources */,
 				EEAF05852B984DC000C924C6 /* LocationMapAnnotationView.swift in Sources */,
 				EE5117202B9420BD0098C511 /* LoginView.swift in Sources */,
+				EE9DE1C22B9962200035B9A1 /* Post.swift in Sources */,
+				EE9DE1C42B9978030035B9A1 /* PostsView.swift in Sources */,
 				EE9A384B2B9411C700C1A764 /* ContentView.swift in Sources */,
 				EEAF05832B9840D000C924C6 /* LocationPreviewView.swift in Sources */,
 				EE150CEE2B954DF4000C9BA4 /* View+extensions.swift in Sources */,
+				EE9DE1C02B9961E50035B9A1 /* CreateNewPost.swift in Sources */,
 				EEAF057A2B98238000C924C6 /* LocationsDataService.swift in Sources */,
 				EE150CEB2B954CCA000C9BA4 /* RegisterView.swift in Sources */,
 				EE150CE72B9456CD000C9BA4 /* LoadingView.swift in Sources */,
