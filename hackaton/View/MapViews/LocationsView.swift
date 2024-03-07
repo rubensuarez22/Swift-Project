@@ -1,9 +1,7 @@
 //
 //  LocationsView.swift
 //  hackaton
-//
-//  Created by José Ángel del Monte Salazar on 05/03/24.
-//
+
 
 import SwiftUI
 import MapKit
@@ -16,6 +14,7 @@ struct LocationsView: View {
         ZStack{
             mapLayer
                 .ignoresSafeArea()
+                .padding(.bottom)
             
             VStack(spacing: 0){
                 header

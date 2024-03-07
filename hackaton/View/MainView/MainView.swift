@@ -29,15 +29,9 @@ struct MainView: View {
                     Image(systemName: "person")
                     Text("Perfil")
                 }
-            /*
-            Text("Ya vere que se hace con esta vista")
-                .tabItem{
-                    Image(systemName: "rectangle.portrait.on.rectangle.portrait.angled")
-                    Text("Publicaciones")
-                }        */
              }
 //        Changing tab table tint to black
-        .tint(.black)
+        .tint(Color("appColor"))
     }
 }
 

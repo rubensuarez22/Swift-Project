@@ -24,7 +24,7 @@ struct ReusablePostView: View {
                     if posts.isEmpty{
                         Text("No se encontraron publicaciones")
                             .font(.caption)
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("appColor"))
                             .padding(.top,30)
                     }else{
                         //Displaing pos

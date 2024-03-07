@@ -31,6 +31,7 @@ struct PostCardView: View {
                 Text(post.userName)
                     .font(.callout)
                     .fontWeight(.semibold)
+                    .foregroundColor(Color("appColor"))
                 Text(post.publishedDate.formatted(date: .numeric, time: .shortened))
                     .font(.caption2)
                     .foregroundColor(.gray)
@@ -99,6 +100,7 @@ struct PostCardView: View {
         HStack(spacing:6){
             Button(action: likePost){
                 Image(systemName: post.likedIDs.contains(userUID) ? "hand.thumbsup.fill" : "hand.thumbsup")
+                    .foregroundColor(Color("appColor"))
             }
             Text("\(post.likedIDs.count)")
                 .font(.caption)
@@ -106,6 +108,7 @@ struct PostCardView: View {
             
             Button(action: dislikePost){
                 Image(systemName: post.dislikedIDs.contains(userUID) ? "hand.thumbsdown.fill" : "hand.thumbsdown")
+                    .foregroundColor(Color("appColor"))
             }
             .padding(.leading,25)
             Text("\(post.dislikedIDs.count)")

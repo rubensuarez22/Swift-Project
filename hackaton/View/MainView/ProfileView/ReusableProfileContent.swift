@@ -27,10 +27,11 @@ struct ReusableProfileContent: View {
                     
                     VStack(alignment: .leading, spacing: 6) {
                         Text(user.username)
+                            .foregroundColor(/*@START_MENU_TOKEN@*/Color("appColor")/*@END_MENU_TOKEN@*/)
                             .font(.title3)
                             .fontWeight(.semibold)
                         
-                        Text(user.userBio)
+                        Text(user.userBio == "77668" ? "San Andrés Cholula" : user.userBio)
                             .font(.caption)
                             .foregroundColor(.gray)
                             .lineLimit(3)
@@ -53,6 +54,25 @@ struct ReusableProfileContent: View {
                     .hAlign(.leading)
                     .padding(.vertical,15)
                 ReusablePostView(basedOnUID: true, uid: user.userUID, posts: $fetchedPosts)
+                
+                if !user.participatingCampaigns.isEmpty {
+                          Text("Campañas en curso")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                            .hAlign(.leading)
+                            .padding(.vertical, 15)
+
+                          // Display information about participating campaigns here
+                    ForEach(user.participatingCampaigns.indices) { index in
+                      let campaignID = user.participatingCampaigns[index]
+                      // Access campaign details or display a placeholder using campaignID
+                      Text("Campaña \(campaignID)")
+                        .foregroundColor(.gray)
+                        .font(.caption)
+                    }
+
+                        }
             }
             .padding(15)
         }

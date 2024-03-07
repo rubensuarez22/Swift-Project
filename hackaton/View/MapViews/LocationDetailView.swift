@@ -71,6 +71,7 @@ extension LocationDetailView {
             if let url = URL(string: location.link) {
                 Link("Encuentra mas informacion", destination: url)
                     .font(.headline)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color("appColor")/*@END_MENU_TOKEN@*/)
             }
             
         }

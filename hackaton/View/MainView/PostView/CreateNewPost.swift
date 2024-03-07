@@ -30,13 +30,13 @@ struct CreateNewPost: View {
         VStack{
             HStack{
                 Menu{
-                    Button("Cancel", role: .destructive){
+                    Button("Salir", role: .destructive){
                         dismiss()
                     }
                 } label: {
                     Text("Cancelar")
                         .font(.callout)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("appColor"))
                 }
                 .hAlign(.leading)
                 Button(action: createPost){
@@ -45,7 +45,7 @@ struct CreateNewPost: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 20)
                         .padding(.vertical,6)
-                        .background(.black, in:Capsule())
+                        .background(Color("appColor"), in:Capsule())
                 }
                 .disableWithOpacity(postText == "")
             }
@@ -58,7 +58,7 @@ struct CreateNewPost: View {
             }
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 15){
-                    TextField("Que esta pasando?", text: $postText, axis: .vertical)
+                    TextField("Qué está pasando?", text: $postText, axis: .vertical)
                         .focused($showKeyBoard)
                     if let postImageData, let image = UIImage(data: postImageData){
                         GeometryReader{
@@ -96,13 +96,14 @@ struct CreateNewPost: View {
                 } label: {
                     Image(systemName: "photo.on.rectangle")
                         .font(.title3)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("appColor"))
                 }
                 .hAlign(.leading)
                 
-                Button("Done"){
+                Button("Hecho"){
                     showKeyBoard = false
                 }
+                .foregroundColor(/*@START_MENU_TOKEN@*/Color("appColor")/*@END_MENU_TOKEN@*/)
             }
             .foregroundColor(.black)
             .padding(.horizontal, 15)

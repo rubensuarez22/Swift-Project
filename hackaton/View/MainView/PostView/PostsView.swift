@@ -24,7 +24,7 @@ struct PostsView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .padding(13)
-                        .background(.black, in: Circle())
+                        .background(Color("appColor"), in: Circle())
                 }
                 .padding(15)
             }
@@ -34,7 +34,7 @@ struct PostsView: View {
                         SearchUserView()
                     } label: {
                         Image(systemName: "magnifyingglass")
-                            .tint(.black)
+                            .tint(Color("appColor"))
                             .scaleEffect(0.9)
                     }
                 }
@@ -43,7 +43,7 @@ struct PostsView: View {
             }
             .fullScreenCover(isPresented: $createNewPost) {
                 CreateNewPost { post in
-                    //ading created posts at the top pf tje recemt posts
+                    //ading created posts at the top of the recent posts
                     recentsPosts.insert(post, at: 0)
                 }
             }

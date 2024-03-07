@@ -11,6 +11,7 @@ struct Campaign: Identifiable {
  let description: String
  let imageNames: [String]
  let link: String
+ //let location: String    
 
   var id: String {
     name + description

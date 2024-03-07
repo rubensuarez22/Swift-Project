@@ -157,7 +157,7 @@ struct RegisterView: View{
 //                Third, download photo url
                 let downloadURL = try await storageRef.downloadURL()
 //                Fourth, create user firestore object
-                let user = User(username: userName, userBio: userBio, userBioLink: userBioLink, userUID: userUID, userEmail: emailID, userProfileURL: downloadURL)
+                let user = User(username: userName, userBio: userBio, userBioLink: userBioLink, userUID: userUID, userEmail: emailID, userProfileURL: downloadURL, participatingCampaigns: [])
 //                Fift, Saving user document into Firestore DB
                 let _ = try Firestore.firestore().collection("Users").document(userUID).setData(from: user, completion: { error in
                     if error == nil{
