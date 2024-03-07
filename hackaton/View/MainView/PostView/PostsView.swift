@@ -4,9 +4,13 @@
 
 import SwiftUI
 
+
+    
+
 struct PostsView: View {
     @State private var recentsPosts: [Post] = []
     @State private var createNewPost: Bool = false
+    
     var body: some View {
         NavigationStack{
         ReusablePostView(posts: $recentsPosts)

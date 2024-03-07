@@ -53,7 +53,7 @@ struct LoginView: View {
                     Text("Iniciar sesión")
                         .foregroundColor(.white)
                         .hAlign(.center)
-                        .fillView(.black)
+                        .fillView(Color("appColor"))
                 }
                 .padding(.top, 10)
             }
@@ -67,7 +67,7 @@ struct LoginView: View {
                     createAccount.toggle()
                 }
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(Color("appColor"))
             }
             .font(.callout)
             .vAlign(.bottom)

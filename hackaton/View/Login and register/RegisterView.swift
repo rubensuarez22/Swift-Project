@@ -32,7 +32,7 @@ struct RegisterView: View{
     @AppStorage("user_UID") var userUID: String = ""
     var body: some View{
         VStack(spacing: 10){
-            Text("Regístrate \nCuenta")
+            Text("Regístrate")
                 .font(.largeTitle.bold())
                 .hAlign(.leading)
             
@@ -56,7 +56,7 @@ struct RegisterView: View{
                     dismiss()
                 }
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(Color("appColor"))
             }
             .font(.callout)
             .vAlign(.bottom)
@@ -97,6 +97,7 @@ struct RegisterView: View{
                     Image("NullProfile")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
+                        
                 }
 
                     
@@ -135,7 +136,7 @@ struct RegisterView: View{
                 Text("Registrarse")
                     .foregroundColor(.white)
                     .hAlign(.center)
-                    .fillView(.black)
+                    .fillView(Color("appColor"))
             }
             .disableWithOpacity(userName.isEmpty || userBio.isEmpty || emailID.isEmpty || password.isEmpty || userProfilePicData == nil)
             .padding(.top, 10)

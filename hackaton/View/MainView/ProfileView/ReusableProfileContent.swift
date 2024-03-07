@@ -45,7 +45,7 @@ struct ReusableProfileContent: View {
                     }
                     .hAlign(.leading)
                 }
-                
+                badgesView()
                 Text("Publicaciones")
                     .font(.title2)
                     .fontWeight(.semibold)

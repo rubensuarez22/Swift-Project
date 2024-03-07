@@ -130,5 +130,5 @@ struct ReusablePostView: View {
 }
 
 #Preview {
-    ContentView()
+    MainView()
 }
