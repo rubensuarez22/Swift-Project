@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 //This is to make the search user feature comoponent reusable to avoid redundant code and also make it easy to display user details simply with an user model object
 struct ReusableProfileContent: View {
     var user: User
+    @State private var fetchedPosts: [Post] = []
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             LazyVStack{
@@ -51,6 +52,7 @@ struct ReusableProfileContent: View {
                     .foregroundColor(.black)
                     .hAlign(.leading)
                     .padding(.vertical,15)
+                ReusablePostView(basedOnUID: true, uid: user.userUID, posts: $fetchedPosts)
             }
             .padding(15)
         }

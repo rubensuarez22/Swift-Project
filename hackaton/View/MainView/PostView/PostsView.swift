@@ -1,16 +1,15 @@
 //
 //  PostsView.swift
 //  hackaton
-//
-//  Created by José Ángel del Monte Salazar on 06/03/24.
-//
 
 import SwiftUI
 
 struct PostsView: View {
+    @State private var recentsPosts: [Post] = []
     @State private var createNewPost: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+        ReusablePostView(posts: $recentsPosts)
             .hAlign(.center).vAlign(.center)
             .overlay(alignment: .bottomTrailing) {
                 Button {
@@ -25,8 +24,23 @@ struct PostsView: View {
                 }
                 .padding(15)
             }
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        SearchUserView()
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .tint(.black)
+                            .scaleEffect(0.9)
+                    }
+                }
+            })
+            .navigationTitle("Publicaciones")
+            }
             .fullScreenCover(isPresented: $createNewPost) {
                 CreateNewPost { post in
+                    //ading created posts at the top pf tje recemt posts
+                    recentsPosts.insert(post, at: 0)
                 }
             }
     }

@@ -1,9 +1,7 @@
 //
 //  CreateNewPost.swift
 //  hackaton
-//
-//  Created by José Ángel del Monte Salazar on 06/03/24.
-//
+
 
 import SwiftUI
 import PhotosUI
@@ -152,11 +150,11 @@ struct CreateNewPost: View {
                     let _ = try await storageRef.putDataAsync(postImageData)
                     let downloadURL = try await storageRef.downloadURL()
                     // 3. create post with iamge id and URL
-                    let post = Post(text: postText, imageURL: downloadURL, imageReferenceID: imageReferenceID, userName: userName, userID: userUID, userProfile: profileURL)
+                    let post = Post(text: postText, imageURL: downloadURL, imageReferenceID: imageReferenceID, userName: userName, userUID: userUID, userProfile: profileURL)
                     try await createDocumentAtFirebase(post)
                 }else {
                     //2. directly poost text data if there is nor image
-                    let post = Post(text: postText, userName: userName, userID: userUID, userProfile: profileURL)
+                    let post = Post(text: postText, userName: userName, userUID: userUID, userProfile: profileURL)
                     try await createDocumentAtFirebase(post)
                 }
             }catch{
@@ -168,10 +166,13 @@ struct CreateNewPost: View {
     
     func createDocumentAtFirebase(_ post: Post)async throws {
         // writing document to firebase
-        let _ = try Firestore.firestore().collection("Posts").addDocument(from: post, completion: { error in
+        let doc = Firestore.firestore().collection("Posts").document()
+        let _ = try doc.setData(from: post, completion: { error in
             if error == nil {
                 isLoading = false
-                onPost(post)
+                var updatedPost = post
+                updatedPost.id = doc.documentID
+                onPost(updatedPost)
                 dismiss()
                 
             }

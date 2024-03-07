@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestoreSwift
 
-struct Post: Identifiable, Codable {
+struct Post: Identifiable, Codable, Equatable, Hashable{
     @DocumentID var id: String?
     var text: String
     var imageURL: URL?
@@ -18,7 +18,7 @@ struct Post: Identifiable, Codable {
     var dislikedIDs: [String] = []
     // Basic user info
     var userName: String
-    var userID: String
+    var userUID: String
     var userProfile: URL? // Cambiado a opcional para manejar URLs nulos
     
     enum CodingKeys: String, CodingKey {
@@ -30,8 +30,8 @@ struct Post: Identifiable, Codable {
         case likedIDs
         case dislikedIDs
         case userName
-        case userID = "UID" // Asegúrate de que este mapeo sea necesario; de lo contrario, solo usa "userID"
-        case userProfile = "userProfileURL" // Corregido para que coincida con el nombre de la propiedad
+        case userUID
+        case userProfile
     }
 }
 
