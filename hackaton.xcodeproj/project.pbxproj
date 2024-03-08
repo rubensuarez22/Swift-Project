@@ -25,6 +25,9 @@
 		EE5117172B941D930098C511 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE5117162B941D930098C511 /* GoogleService-Info.plist */; };
 		EE51171A2B941FBA0098C511 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE5117192B941FBA0098C511 /* FirebaseAuth */; };
 		EE5117202B9420BD0098C511 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE51171F2B9420BD0098C511 /* LoginView.swift */; };
+		EE884F602B9AD1120055B1FB /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE884F5F2B9AD1120055B1FB /* NavigationViewModel.swift */; };
+		EE884F622B9AD14C0055B1FB /* ContenidoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE884F612B9AD14C0055B1FB /* ContenidoView.swift */; };
+		EE884F642B9AD4B40055B1FB /* notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE884F632B9AD4B40055B1FB /* notifications.swift */; };
 		EE9A38492B9411C700C1A764 /* hackatonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9A38482B9411C700C1A764 /* hackatonApp.swift */; };
 		EE9A384B2B9411C700C1A764 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9A384A2B9411C700C1A764 /* ContentView.swift */; };
 		EE9A384D2B9411C900C1A764 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE9A384C2B9411C900C1A764 /* Assets.xcassets */; };
@@ -84,6 +87,9 @@
 		EE150CF42B956E68000C9BA4 /* ReusableProfileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProfileContent.swift; sourceTree = "<group>"; };
 		EE5117162B941D930098C511 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE51171F2B9420BD0098C511 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EE884F5F2B9AD1120055B1FB /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		EE884F612B9AD14C0055B1FB /* ContenidoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContenidoView.swift; sourceTree = "<group>"; };
+		EE884F632B9AD4B40055B1FB /* notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifications.swift; sourceTree = "<group>"; };
 		EE9A38452B9411C700C1A764 /* hackaton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackaton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE9A38482B9411C700C1A764 /* hackatonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackatonApp.swift; sourceTree = "<group>"; };
 		EE9A384A2B9411C700C1A764 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,13 +179,14 @@
 		EE150CE92B954C5B000C9BA4 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				8D8AC5E22B9A4D2E00C94E4F /* CampaignsView */,
-				EEAF058A2B9871FE00C924C6 /* TheMainView.swift */,
 				EE150CEF2B954E96000C9BA4 /* MainView.swift */,
+				EEAF058A2B9871FE00C924C6 /* TheMainView.swift */,
 				EEAF05882B9867E300C924C6 /* notLoggedInView.swift */,
+				8D8AC5E22B9A4D2E00C94E4F /* CampaignsView */,
 				EE9DE1CA2B999BBA0035B9A1 /* ProfileView */,
 				EE9DE1C92B999B980035B9A1 /* PostView */,
 				EE9DE1CB2B999FD30035B9A1 /* SearchUserView.swift */,
+				EE884F612B9AD14C0055B1FB /* ContenidoView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 				EE150CE92B954C5B000C9BA4 /* MainView */,
 				EE150CE82B954C48000C9BA4 /* Login and register */,
 				EE150CE62B9456CD000C9BA4 /* LoadingView.swift */,
+				EE884F632B9AD4B40055B1FB /* notifications.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				8D283B4F2B99260000D64C23 /* Campaign.swift */,
 				EE9DE1BA2B99510B0035B9A1 /* Badges.swift */,
 				EE9DE1C12B9962200035B9A1 /* Post.swift */,
+				EE884F5F2B9AD1120055B1FB /* NavigationViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -463,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE884F602B9AD1120055B1FB /* NavigationViewModel.swift in Sources */,
 				EEAF05812B9832C100C924C6 /* LocationsListView.swift in Sources */,
 				EE150CE52B944801000C9BA4 /* User.swift in Sources */,
 				EEAF05872B98525100C924C6 /* LocationDetailView.swift in Sources */,
@@ -476,6 +486,7 @@
 				EE9DE1C82B9983880035B9A1 /* PostCardView.swift in Sources */,
 				EEAF05892B9867E300C924C6 /* notLoggedInView.swift in Sources */,
 				EE9DE1B92B9950EF0035B9A1 /* badgesData.swift in Sources */,
+				EE884F622B9AD14C0055B1FB /* ContenidoView.swift in Sources */,
 				EEAF058B2B9871FE00C924C6 /* TheMainView.swift in Sources */,
 				8D283B4E2B9925B200D64C23 /* campaignsData.swift in Sources */,
 				EE9DE1BE2B99528B0035B9A1 /* badgesView.swift in Sources */,
@@ -489,6 +500,7 @@
 				EE9A384B2B9411C700C1A764 /* ContentView.swift in Sources */,
 				EEAF05832B9840D000C924C6 /* LocationPreviewView.swift in Sources */,
 				EE150CEE2B954DF4000C9BA4 /* View+extensions.swift in Sources */,
+				EE884F642B9AD4B40055B1FB /* notifications.swift in Sources */,
 				EE9DE1C02B9961E50035B9A1 /* CreateNewPost.swift in Sources */,
 				EEAF057A2B98238000C924C6 /* LocationsDataService.swift in Sources */,
 				EE150CEB2B954CCA000C9BA4 /* RegisterView.swift in Sources */,
@@ -662,6 +674,8 @@
 				DEVELOPMENT_TEAM = 5465HQX6TV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = EcoAction;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -691,6 +705,8 @@
 				DEVELOPMENT_TEAM = 5465HQX6TV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = EcoAction;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

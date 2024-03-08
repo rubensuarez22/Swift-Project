@@ -1,15 +1,12 @@
 //
 //  LocationPreviewView.swift
 //  hackaton
-//
-//  Created by José Ángel del Monte Salazar on 06/03/24.
-//
+
 
 import SwiftUI
 
 struct LocationPreviewView: View {
     @EnvironmentObject private var vm: LocationsViewModel
-    
     let location: Location
     
     var body: some View {

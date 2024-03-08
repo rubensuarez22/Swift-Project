@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct ParticipateOnCampaignView: View {
-  var campaign: Campaign
+    var campaign: Campaign
+    @EnvironmentObject private var vm: LocationsViewModel
+    @EnvironmentObject private var navigationVM: NavigationViewModel
+    @AppStorage("shouldShowLocationsView") var shouldShowLocationsView: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    var navigateToLocations: (() -> Void)? = nil
+
 
   var body: some View {
     VStack(spacing: 20) {
@@ -19,15 +25,19 @@ struct ParticipateOnCampaignView: View {
         .font(.body)
         .multilineTextAlignment(.leading)
       // Add detailed information section here (optional)
-      Button(action: {
-        // Implement participation action (e.g., link to website, open app)
-      }) {
-        Text("Participar")
-          .foregroundColor(.white)
-          .padding()
-          .background(Color.green)
-          .cornerRadius(8)
-      }
+        Button(action: {
+            if let location = vm.locations.first(where: { $0.name == campaign.name }) {
+                // Configura el estado para la presentación de LocationDetailView
+                vm.selectedLocationForDetail = location
+                presentationMode.wrappedValue.dismiss() // Cierra la hoja actual
+            }
+        }) {
+            Text("Participar")
+              .foregroundColor(.white)
+              .padding()
+              .background(Color.green)
+              .cornerRadius(8)
+        }
       Spacer() // Push content to top
     }
     .padding()

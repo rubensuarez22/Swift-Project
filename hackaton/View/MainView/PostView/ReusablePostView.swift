@@ -4,130 +4,117 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestoreSwift
 
 struct ReusablePostView: View {
     var basedOnUID: Bool = false
     var uid: String = ""
-    @Binding var posts:[Post]
-        //View properties
-    @State var isFetching: Bool = true
-    //Pagination
+    @Binding var posts: [Post]
+    
+    // Estado para manejar si se está recuperando data.
+    @State private var isFetching: Bool = true
+    // Estado para almacenar la última referencia de documento para la paginación.
     @State private var paginationDoc: QueryDocumentSnapshot?
+    // Referencia para el listener de Firestore, para poder cancelarlo.
+    @State private var postsListener: ListenerRegistration?
+    
     var body: some View {
-        ScrollView (.vertical, showsIndicators: false) {
-            LazyVStack{
-                if isFetching{
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack {
+                if isFetching {
                     ProgressView()
-                        .padding(.top,30)
-                    
-                }else {
-                    if posts.isEmpty{
-                        Text("No se encontraron publicaciones")
-                            .font(.caption)
-                            .foregroundColor(Color("appColor"))
-                            .padding(.top,30)
-                    }else{
-                        //Displaing pos
-                        Posts()
+                        .padding(.top, 30)
+                } else if posts.isEmpty {
+                    Text("No se encontraron publicaciones")
+                        .font(.caption)
+                        .foregroundColor(Color("appColor"))
+                        .padding(.top, 30)
+                } else {
+                    ForEach(posts) { post in
+                        PostCardView(post: post, onUpdate: { updatedPost in
+                            // Actualizar post en el array.
+                            if let index = posts.firstIndex(where: { $0.id == updatedPost.id }) {
+                                posts[index] = updatedPost
+                            }
+                        }, onDelete: {
+                            // Remover post del array.
+                            posts.removeAll { $0.id == post.id }
+                        })
+                        .onAppear {
+                            if post.id == posts.last?.id && paginationDoc != nil {
+                                Task {
+                                    await fetchPosts()
+                                }
+                            }
+                        }
                     }
-                
                 }
             }
             .padding(15)
         }
         .refreshable {
-            //Scroll to refresh
-            //diabling refresh for uid based post's
-            guard basedOnUID else {return}
-            isFetching = true
-            posts = []
-            //reseting pagination doc
-            paginationDoc = nil
-            await fetchPosts()
+            await fetchPosts(reset: true)
         }
-        .task{
-            guard posts.isEmpty else {return}
-            await fetchPosts()
+        .task {
+            if posts.isEmpty {
+                await fetchPosts(reset: true)
+            }
+        }
+        .onDisappear {
+            // Asegurarse de cancelar el listener cuando la vista desaparezca.
+            postsListener?.remove()
         }
     }
-    //Displaying fetched posts
-    @ViewBuilder
-    func Posts()->some View{
-        ForEach(posts){post in
-            PostCardView(post: post){ updatedPost in
-                //Updating post in the array
-                if let index = posts.firstIndex(where: { post in
-                    post.id == updatedPost.id
-                }){
-                    posts[index].likedIDs = updatedPost.likedIDs
-                    posts[index].dislikedIDs = updatedPost.dislikedIDs
-                }
-            } onDelete: {
-                //Removing Post from the array
-                withAnimation(.easeInOut(duration:0.25)){
-                    posts.removeAll{post.id == $0.id}
-                }
-                
-            }
-            .onAppear{
-                if post.id == posts.last?.id && paginationDoc != nil {
-                    Task{await fetchPosts()}
-                        
-                    }   
-                }
-            }
-            Divider()
-                .padding(.horizontal,-15)
-    }
-    
 
-    
-    //fetching posts
-    //fetching posts
-    func fetchPosts() async {
-        do {
-            var query: Query!
-            
-            if let paginationDoc{
-                 query = Firestore.firestore().collection("Posts")
-                    .order(by: "publishedDate", descending: true)
-                    .start(afterDocument: paginationDoc)
-                    .limit(to: 20)
-                
-            }else{
-                
-                 query = Firestore.firestore().collection("Posts")
-                    .order(by: "publishedDate", descending: true)
-                    .limit(to: 20)
+    func fetchPosts(reset: Bool = false) async {
+        if reset {
+            paginationDoc = nil
+            postsListener?.remove()
+            posts = []
+        }
+        
+        var query: Query = Firestore.firestore().collection("Posts")
+            .order(by: "publishedDate", descending: true)
+            .limit(to: 20)
+
+        if basedOnUID {
+            query = query.whereField("userUID", isEqualTo: uid)
+        }
+
+        if let paginationDoc {
+            query = query.start(afterDocument: paginationDoc)
+        }
+        
+        // Cancelar el listener anterior si existe.
+        postsListener?.remove()
+        
+        isFetching = true
+        postsListener = query.addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error?.localizedDescription ?? "Unknown error")")
+                DispatchQueue.main.async {
+                    self.isFetching = false
+                }
+                return
             }
-            
-            //New query for UID Based document fetch
-            // Simply filter the post's which doesnt belong to this UID
-            
-            if basedOnUID{
-                query = query
-                    .whereField("userUID", isEqualTo: uid)
-            }
-            
-            
-            let docs = try await query.getDocuments()
-            let fetchedPosts = docs.documents.compactMap { doc -> Post? in
+            let fetchedPosts = documents.compactMap { doc -> Post? in
                 try? doc.data(as: Post.self)
             }
-            await MainActor.run {
-                posts.append(contentsOf: fetchedPosts)
-                paginationDoc = docs.documents.last
-                self.isFetching = false // Asegúrate de actualizar isFetching para reflejar que la carga ha terminado
-            }
-        } catch {
-            print(error.localizedDescription)
-            await MainActor.run {
-                self.isFetching = false // También actualiza isFetching en caso de error
+            
+            DispatchQueue.main.async {
+                if reset || self.paginationDoc == nil {
+                    self.posts = fetchedPosts
+                } else {
+                    self.posts.append(contentsOf: fetchedPosts)
+                }
+                self.paginationDoc = documents.last
+                self.isFetching = false
             }
         }
     }
-
 }
+
+
 
 #Preview {
     MainView()

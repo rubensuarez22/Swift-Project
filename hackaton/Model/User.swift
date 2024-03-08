@@ -2,8 +2,7 @@
 //  User.swift
 //  hackaton
 //
-//  Created by José Ángel del Monte Salazar on 02/03/24.
-//
+
 
 import SwiftUI
 import FirebaseFirestoreSwift
@@ -15,8 +14,9 @@ struct User: Identifiable,Codable{
     var userBioLink: String
     var userUID: String
     var userEmail: String
-    var userProfileURL: URL
-    var participatingCampaigns: [String]
+    var userProfileURL: URL?
+    var participatingCampaigns: [String]?
+    var postalCode: String?
     
     enum CodingKeys: CodingKey{
         case id
@@ -27,6 +27,7 @@ struct User: Identifiable,Codable{
         case userEmail
         case userProfileURL
         case participatingCampaigns
+        case postalCode
     }
 
 }

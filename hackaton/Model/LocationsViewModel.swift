@@ -11,6 +11,7 @@ import MapKit
 
 class LocationsViewModel: ObservableObject{
     //All loaded locations
+    @Published var selectedLocationForDetail: Location? = nil
     @Published var locations: [Location]
     //Current location on map
     @Published var mapLocation: Location {
@@ -54,12 +55,14 @@ class LocationsViewModel: ObservableObject{
         }
     }
     
-    func showNextLocation(location: Location){
+    func showNextLocation(location: Location) {
         withAnimation(.easeInOut) {
+            print("Cambiando a la siguiente ubicación: \(location.name)")
             mapLocation = location
             showLocationsList = false
         }
     }
+
     
     func nextButtonPressed(){
         //Get the current index

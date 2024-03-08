@@ -48,6 +48,9 @@ struct SearchUserView: View {
                 .whereField("username", isGreaterThanOrEqualTo: searchText)
                 .whereField("username", isLessThanOrEqualTo: "\(searchText)\u{f8ff}")
                 .getDocuments()
+            documents.documents.forEach { doc in
+                        print(doc.data()) // Imprimir datos brutos
+                    }
 
             let users = try documents.documents.compactMap { doc -> User? in
                 try doc.data(as: User.self)

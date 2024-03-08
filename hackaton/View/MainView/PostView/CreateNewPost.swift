@@ -188,6 +188,24 @@ struct CreateNewPost: View {
             showError.toggle()
         })
     }
+    
+    func sendNotification(title: String, body: String) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        notificationCenter.add(request) { error in
+            if let error = error {
+                print("Error al enviar notificación: \(error.localizedDescription)")
+            }
+        }
+    }
 }
 #Preview {
     CreateNewPost{_ in

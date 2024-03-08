@@ -10,6 +10,8 @@ import SwiftUI
 struct CampaignsView: View {
   @State private var campaigns: [Campaign] = campaignsData.campaigns // Updated data source
   @State private var selectedCampaign: Campaign? = nil // Track selected campaign
+    
+@EnvironmentObject var locationsViewModel: LocationsViewModel
   let appsGreen = Color(red: 112/255, green: 224/255, blue: 0/255)
 
   var body: some View {
@@ -17,7 +19,9 @@ struct CampaignsView: View {
       ScrollView {
         ForEach(campaigns) { campaign in
           Button(action: {
+              
             selectedCampaign = campaign // Set selected campaign on button tap
+              print("Campaña seleccionada: \(campaign.name)")
           }) {
             HStack {
               imageSection(for: campaign)
@@ -33,9 +37,16 @@ struct CampaignsView: View {
       }
       .navigationTitle("Campañas Ambientales") // Set navigation title
     }
-    .sheet(item: $selectedCampaign) { campaign in // Show detail view on selection
-      ParticipateOnCampaignView(campaign: campaign)
-    }
+    .sheet(item: $selectedCampaign) { campaign in
+         ParticipateOnCampaignView(campaign: campaign)
+             .environmentObject(locationsViewModel)
+             .presentationDetents([.fraction(0.25)])
+     }
+     .sheet(item: $locationsViewModel.selectedLocationForDetail) { location in
+         LocationDetailView(location: location)
+             .environmentObject(locationsViewModel)
+     }
+
   }
 
   private func imageSection(for campaign: Campaign) -> some View {

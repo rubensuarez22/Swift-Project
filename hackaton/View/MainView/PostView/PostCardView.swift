@@ -139,7 +139,6 @@ struct PostCardView: View {
         }
     }
     // Dislike Post
-    // Dislike Post
     func dislikePost(){
         Task{
             guard let postID = post.id else{return}

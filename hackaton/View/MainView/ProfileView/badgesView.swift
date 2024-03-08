@@ -19,8 +19,8 @@ struct badgesView: View {
                 }
                 .frame(height: 80)
             }
-            .padding(.horizontal)
-        }
+            //.padding(.horizontal)
+        }//.frame(maxWidth: .infinity)
     }
     
     // Extrae la función 'imageSection' que acepta un badge y devuelve una vista

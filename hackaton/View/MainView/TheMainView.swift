@@ -15,7 +15,7 @@ struct TheMainView: View {
                     // Logo de la aplicación a la izquierda
                     Image("logo_app")
                         .resizable()
-                        .frame(width: 45, height: 45)
+                        .frame(width: 80, height: 80)
                         .padding(.leading, 20)
                     
                     Spacer() // Espacio flexible

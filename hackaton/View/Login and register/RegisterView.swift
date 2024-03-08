@@ -16,6 +16,7 @@ struct RegisterView: View{
     @State var password: String = ""
     @State var userName: String = ""
     @State var userBio: String = ""
+    @State var postalCode: String = ""
     @State var userBioLink: String = ""
     @State var userProfilePicData: Data?
     //    View Properties
@@ -123,8 +124,13 @@ struct RegisterView: View{
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
             
-            TextField("ZIP Code", text: $userBio)
+            TextField("Código Postal", text: $postalCode)
+                .keyboardType(.numberPad)
+                .border(1, .gray.opacity(0.5))
+
+            TextField("Acerca de tí", text: $userBio, axis:.vertical)
                 .textContentType(.emailAddress)
+                .frame(minHeight: 100, alignment: .top)
                 .border(1, .gray.opacity(0.5))
             
             TextField("Link a tu biografía (opcional)", text: $userBioLink)
@@ -157,7 +163,7 @@ struct RegisterView: View{
 //                Third, download photo url
                 let downloadURL = try await storageRef.downloadURL()
 //                Fourth, create user firestore object
-                let user = User(username: userName, userBio: userBio, userBioLink: userBioLink, userUID: userUID, userEmail: emailID, userProfileURL: downloadURL, participatingCampaigns: [])
+                let user = User(username: userName, userBio: userBio, userBioLink: userBioLink, userUID: userUID, userEmail: emailID, userProfileURL: downloadURL, participatingCampaigns: [], postalCode: postalCode)
 //                Fift, Saving user document into Firestore DB
                 let _ = try Firestore.firestore().collection("Users").document(userUID).setData(from: user, completion: { error in
                     if error == nil{

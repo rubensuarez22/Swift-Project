@@ -16,7 +16,7 @@ struct ReusableProfileContent: View {
             LazyVStack{
                 HStack(spacing: 12) {
                     WebImage(url:user.userProfileURL).placeholder{
-//                        pLACEHODLER IMAGE
+                        //                        pLACEHODLER IMAGE
                         Image("NullProfile")
                             .resizable()
                     }
@@ -35,18 +35,19 @@ struct ReusableProfileContent: View {
                             .font(.caption)
                             .foregroundColor(.gray)
                             .lineLimit(3)
-//                        Displaying bio ling if given while signing up
+                        //                        Displaying bio ling if given while signing up
                         if let bioLink = URL(string: user.userBioLink)
                         {
                             Link(user.userBioLink, destination: bioLink)
                                 .font(.callout)
                                 .tint(.blue)
                                 .lineLimit(1)
-                        }                
+                        }
                     }
                     .hAlign(.leading)
                 }
                 badgesView()
+                    .frame(maxWidth: .infinity)
                 Text("Publicaciones")
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -55,28 +56,12 @@ struct ReusableProfileContent: View {
                     .padding(.vertical,15)
                 ReusablePostView(basedOnUID: true, uid: user.userUID, posts: $fetchedPosts)
                 
-                if !user.participatingCampaigns.isEmpty {
-                          Text("Campañas en curso")
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .hAlign(.leading)
-                            .padding(.vertical, 15)
-
-                          // Display information about participating campaigns here
-                    ForEach(user.participatingCampaigns.indices) { index in
-                      let campaignID = user.participatingCampaigns[index]
-                      // Access campaign details or display a placeholder using campaignID
-                      Text("Campaña \(campaignID)")
-                        .foregroundColor(.gray)
-                        .font(.caption)
-                    }
 
                         }
             }
             .padding(15)
         }
     }
-}
+
 
 
